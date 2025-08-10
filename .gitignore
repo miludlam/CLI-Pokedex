@@ -27,3 +27,5 @@ go.work.sum
 # Project specific
 repl.log
 pokedexcli
+main
+pokedex
