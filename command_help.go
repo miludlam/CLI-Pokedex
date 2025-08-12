@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-func commandHelp() error {
+func commandHelp(c *config) error {
+	_ = c // config is unneeded for this function, so discard
 	fmt.Println()
 	fmt.Println("Welcome to the Pokedex!")
 	fmt.Println("Usage:")
