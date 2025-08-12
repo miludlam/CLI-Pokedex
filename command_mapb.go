@@ -8,17 +8,18 @@ import (
 	"net/http"
 )
 
-func commandMap(c *config) error {
-	callAPI(c)
+func commandMapb(c *config) error {
+	callAPIb(c)
 	return nil
 }
 
-func callAPI(c *config) {
-	if c.Next == "" {
+func callAPIb(c *config) {
+	if c.Previous == "" {
 		fmt.Println("You're on the first page")
 		return
 	}
-	res, err := http.Get(c.Next)
+
+	res, err := http.Get(c.Previous)
 
 	if err != nil {
 		log.Fatal(err)
@@ -44,6 +45,7 @@ func callAPI(c *config) {
 		c.Next = areaMap["next"].(string)
 	} else {
 		c.Next = ""
+		fmt.Println("You're on the last page")
 	}
 	if areaMap["previous"] != nil {
 		c.Previous = areaMap["previous"].(string)
